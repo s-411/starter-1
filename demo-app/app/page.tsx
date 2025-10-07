@@ -2,6 +2,30 @@
 
 import { ThemeToggle } from '@/design-system/lib/theme-toggle'
 import { useState } from 'react'
+import {
+  Home,
+  User,
+  Settings,
+  Search,
+  Bell,
+  Mail,
+  Heart,
+  Star,
+  Trash2,
+  Edit,
+  Plus,
+  Download,
+  Upload,
+  Check,
+  X,
+  AlertCircle,
+  Info,
+  ChevronRight,
+  ChevronLeft,
+  Calendar,
+  Clock,
+  MapPin
+} from 'lucide-react'
 
 export default function Home() {
   const [rating, setRating] = useState<number | null>(null)
@@ -25,9 +49,14 @@ export default function Home() {
           <h2 className="text-2xl font-heading mb-6">Color System</h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             <div className="space-y-2">
-              <div className="h-24 bg-primary rounded-lg"></div>
+              <div className="h-24 rounded-lg bg-mm-primary"></div>
               <p className="text-sm font-medium">Primary</p>
               <p className="text-xs text-muted-foreground">#00A1FE</p>
+            </div>
+            <div className="space-y-2">
+              <div className="h-24 rounded-lg bg-mm-secondary"></div>
+              <p className="text-sm font-medium">Secondary</p>
+              <p className="text-xs text-muted-foreground">#f2f661</p>
             </div>
             <div className="space-y-2">
               <div className="h-24 bg-background border border-border rounded-lg"></div>
@@ -43,11 +72,6 @@ export default function Home() {
               <div className="h-24 bg-muted rounded-lg"></div>
               <p className="text-sm font-medium">Muted</p>
               <p className="text-xs text-muted-foreground">Subtle</p>
-            </div>
-            <div className="space-y-2">
-              <div className="h-24 bg-accent rounded-lg"></div>
-              <p className="text-sm font-medium">Accent</p>
-              <p className="text-xs text-muted-foreground">Highlight</p>
             </div>
           </div>
         </section>
@@ -251,10 +275,110 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Icons */}
+        <section>
+          <h2 className="text-2xl font-heading mb-6">Lucide Icons</h2>
+          <p className="text-muted-foreground mb-6">Common icons from the Lucide library</p>
+          <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-4">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Home className="w-6 h-6" />
+              <span className="text-xs text-center">Home</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <User className="w-6 h-6" />
+              <span className="text-xs text-center">User</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Settings className="w-6 h-6" />
+              <span className="text-xs text-center">Settings</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Search className="w-6 h-6" />
+              <span className="text-xs text-center">Search</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Bell className="w-6 h-6" />
+              <span className="text-xs text-center">Bell</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Mail className="w-6 h-6" />
+              <span className="text-xs text-center">Mail</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Heart className="w-6 h-6" />
+              <span className="text-xs text-center">Heart</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Star className="w-6 h-6" />
+              <span className="text-xs text-center">Star</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Trash2 className="w-6 h-6" />
+              <span className="text-xs text-center">Trash</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Edit className="w-6 h-6" />
+              <span className="text-xs text-center">Edit</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Plus className="w-6 h-6" />
+              <span className="text-xs text-center">Plus</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Download className="w-6 h-6" />
+              <span className="text-xs text-center">Download</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Upload className="w-6 h-6" />
+              <span className="text-xs text-center">Upload</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Check className="w-6 h-6" />
+              <span className="text-xs text-center">Check</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <X className="w-6 h-6" />
+              <span className="text-xs text-center">X</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <AlertCircle className="w-6 h-6" />
+              <span className="text-xs text-center">Alert</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Info className="w-6 h-6" />
+              <span className="text-xs text-center">Info</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <ChevronRight className="w-6 h-6" />
+              <span className="text-xs text-center">Right</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <ChevronLeft className="w-6 h-6" />
+              <span className="text-xs text-center">Left</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Calendar className="w-6 h-6" />
+              <span className="text-xs text-center">Calendar</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <Clock className="w-6 h-6" />
+              <span className="text-xs text-center">Clock</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+              <MapPin className="w-6 h-6" />
+              <span className="text-xs text-center">MapPin</span>
+            </div>
+          </div>
+        </section>
+
         {/* Footer */}
         <footer className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
           <p>MM Design System v2.0 - Built with Tailwind CSS 4 + shadcn/ui compatibility</p>
-          <p className="mt-2">Toggle theme with the button at the top to see light/dark mode! 🌓</p>
+          <p className="mt-2">
+            <span className="text-mm-primary">Primary: #00A1FE</span>
+            {' • '}
+            <span className="text-mm-secondary">Secondary: #f2f661</span>
+          </p>
         </footer>
 
       </div>

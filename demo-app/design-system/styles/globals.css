@@ -138,11 +138,12 @@
    ================================ */
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-family: var(--font-family-body);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -259,6 +260,11 @@
     color: hsl(var(--foreground));
   }
 
+  /* Dark mode specific input background */
+  .dark .input-mm {
+    background-color: color-mix(in srgb, var(--color-mm-dark) 50%, transparent);
+  }
+
   .input-mm::placeholder {
     color: hsl(var(--muted-foreground));
   }
@@ -281,6 +287,11 @@
     color: hsl(var(--foreground));
   }
 
+  /* Dark mode specific select background */
+  .dark .select-mm {
+    background-color: color-mix(in srgb, var(--color-mm-dark) 50%, transparent);
+  }
+
   .select-mm:focus {
     border-color: hsl(var(--ring));
     box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
@@ -288,10 +299,16 @@
 
   /* Cards */
   .card-mm {
-    @apply p-6 border border-border rounded-card;
+    @apply p-6 rounded-card;
     @apply transition-all duration-200;
     background-color: hsl(var(--card));
     color: hsl(var(--card-foreground));
+    border: 1px solid hsl(var(--border));
+  }
+
+  /* Dark mode specific card border */
+  .dark .card-mm {
+    border-color: color-mix(in oklab, var(--color-mm-gray) 20%, transparent);
   }
 
   .card-mm:hover {
@@ -300,10 +317,17 @@
 
   /* Glass Card Effect */
   .glass-card {
-    @apply p-6 border border-border rounded-card;
+    @apply p-6 rounded-card;
+    @apply transition-all duration-200;
     background-color: hsl(var(--card) / 0.8);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
+    border: 1px solid hsl(var(--border));
+  }
+
+  /* Dark mode specific glass card border */
+  .dark .glass-card {
+    border-color: color-mix(in oklab, var(--color-mm-gray) 20%, transparent);
   }
 
   /* Sidebar Navigation */
