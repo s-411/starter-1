@@ -2,7 +2,7 @@
 
 ## Your Brand Colors
 
-### Primary Color: MM Blue
+### Primary Color: MM Primary
 - **Hex:** `#00A1FE`
 - **RGB:** `rgb(0, 161, 254)`
 - **HSL:** `hsl(202, 100%, 50%)`

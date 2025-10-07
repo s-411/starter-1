@@ -3,7 +3,7 @@
 import { ThemeToggle } from '@/design-system/lib/theme-toggle'
 import { useState } from 'react'
 import {
-  Home,
+  Home as HomeIcon,
   User,
   Settings,
   Search,
@@ -281,7 +281,7 @@ export default function Home() {
           <p className="text-muted-foreground mb-6">Common icons from the Lucide library</p>
           <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-4">
             <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
-              <Home className="w-6 h-6" />
+              <HomeIcon className="w-6 h-6" />
               <span className="text-xs text-center">Home</span>
             </div>
             <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
