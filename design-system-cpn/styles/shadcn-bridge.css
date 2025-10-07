@@ -1,0 +1,70 @@
+/* shadcn-bridge.css — map shadcn/ui CSS variables to MM tokens
+   Import this AFTER `globals.css` so it can reference the tokens defined there.
+
+   Outcome:
+   - All shadcn/ui components pick up MM colors, radii, and rings automatically.
+   - Changing `--color-mm-blue` in `globals.css` updates every shadcn component.
+*/
+
+:root {
+  /* Base surfaces & text */
+  --background: var(--color-mm-dark);
+  --foreground: var(--color-mm-white);
+
+  --card: var(--color-mm-dark2);
+  --card-foreground: var(--color-mm-white);
+
+  --popover: var(--color-mm-dark2);
+  --popover-foreground: var(--color-mm-white);
+
+  /* Brand */
+  --primary: var(--color-mm-blue);
+  --primary-foreground: var(--color-mm-dark);
+
+  /* Secondary & subtle surfaces */
+  --secondary: color-mix(in srgb, var(--color-mm-dark) 50%, transparent);
+  --secondary-foreground: var(--color-mm-white);
+
+  --muted: color-mix(in srgb, var(--color-mm-gray) 20%, transparent);
+  --muted-foreground: var(--color-mm-gray);
+
+  --accent: var(--color-mm-blue);
+  --accent-foreground: var(--color-mm-dark);
+
+  /* Semantic */
+  --destructive: #ff6b6b; /* aligns with .text-error */
+  --destructive-foreground: var(--color-mm-white);
+
+  /* Borders / Inputs / Focus */
+  --border: color-mix(in srgb, var(--color-mm-gray) 20%, transparent);
+  --input: color-mix(in srgb, var(--color-mm-gray) 30%, transparent);
+  --ring: var(--color-mm-blue);
+
+  /* Radii */
+  --radius: var(--radius-input); /* shadcn components read this */
+}
+
+/* Optional: dark scheme explicit (same as root since system is dark-first) */
+.dark {
+  --background: var(--color-mm-dark);
+  --foreground: var(--color-mm-white);
+  --card: var(--color-mm-dark2);
+  --card-foreground: var(--color-mm-white);
+  --popover: var(--color-mm-dark2);
+  --popover-foreground: var(--color-mm-white);
+  --primary: var(--color-mm-blue);
+  --primary-foreground: var(--color-mm-dark);
+  --secondary: color-mix(in srgb, var(--color-mm-dark) 50%, transparent);
+  --secondary-foreground: var(--color-mm-white);
+  --muted: color-mix(in srgb, var(--color-mm-gray) 20%, transparent);
+  --muted-foreground: var(--color-mm-gray);
+  --accent: var(--color-mm-blue);
+  --accent-foreground: var(--color-mm-dark);
+  --destructive: #ff6b6b;
+  --destructive-foreground: var(--color-mm-white);
+  --border: color-mix(in srgb, var(--color-mm-gray) 20%, transparent);
+  --input: color-mix(in srgb, var(--color-mm-gray) 30%, transparent);
+  --ring: var(--color-mm-blue);
+  --radius: var(--radius-input);
+}
+

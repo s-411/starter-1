@@ -1,0 +1,36 @@
+/* Brand Presets — optional quick switches for primary brand color
+   Usage: import after globals.css and set an attribute on <html> or <body>
+   Example: <html data-brand="amber"> ... </html>
+   Only overrides the single source of truth token: --color-mm-blue
+*/
+
+/* Default (blue) — same as globals.css */
+[data-brand="blue"] {
+  --color-mm-blue: #00A1FE;
+}
+
+/* Preset: cyan */
+[data-brand="cyan"] {
+  --color-mm-blue: #06B6D4;
+}
+
+/* Preset: emerald */
+[data-brand="emerald"] {
+  --color-mm-blue: #10B981;
+}
+
+/* Preset: amber */
+[data-brand="amber"] {
+  --color-mm-blue: #F59E0B;
+}
+
+/* Preset: violet */
+[data-brand="violet"] {
+  --color-mm-blue: #8B5CF6;
+}
+
+/* Preset: rose */
+[data-brand="rose"] {
+  --color-mm-blue: #F43F5E;
+}
+
