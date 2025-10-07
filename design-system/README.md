@@ -1,221 +1,149 @@
-# MM Design System
+# MM Design System v2.0
 
-**A complete styling package for Measured Managed applications** - extracted from the brilliant MM v2 design system.
+**A production-ready, reusable design system** for React/Next.js applications with full Tailwind CSS 4, shadcn/ui compatibility, and light/dark mode support.
 
-This package contains everything you need to replicate the exact same design styling in any new React/Next.js application. Every color, font, button shape, component style, and layout pattern has been carefully extracted and documented.
+## 🎯 What This Is
 
-## 🎨 Design Overview
-
-The MM design system features:
-- **Dark theme** with strategic blue accent color (#00A1FE)
-- **100px border radius buttons** for distinctive CTA styling
-- **Custom typography** with National2Condensed headings and ESKlarheit body text
-- **Glassmorphism effects** with subtle backdrop blur
-- **Mobile-responsive patterns** with card-based layouts
-- **Consistent spacing** and component architecture
-
-## 📁 Package Contents
-
-```
-design-system-cpn/
-├── README.md                    # This comprehensive guide
-├── package.json                 # Dependencies and configuration
-├── postcss.config.mjs          # PostCSS setup for Tailwind CSS 4
-├── styles/
-│   └── globals.css             # Complete CSS system with all styles
-├── fonts/
-│   ├── National-2-Condensed-Bold.ttf
-│   └── ESKlarheitGrotesk-Rg.otf
-├── config/
-│   ├── colors.json             # Complete color palette reference
-│   └── design-tokens.json      # All design tokens and specifications
-└── examples/
-    ├── button-examples.tsx     # Button components and patterns
-    ├── card-examples.tsx       # Card layouts and components
-    ├── form-examples.tsx       # Form inputs and validation patterns
-    └── layout-examples.tsx     # Navigation and layout structures
-```
+This is a **portable design system folder** that you can drop into any Next.js project and get:
+- ✅ Your exact brand colors and typography (National2Condensed + ESKlarheit)
+- ✅ Signature 100px border-radius buttons
+- ✅ Full light/dark mode support
+- ✅ shadcn/ui compatibility (all components will match your design)
+- ✅ Consistent styling across all projects
 
 ## 🚀 Quick Start
 
-### 1. Copy to Your Project
+### 1. Copy the Folder
 
-Copy the entire `design-system-cpn` folder to your new project root:
+Copy the entire `design-system` folder to your Next.js project root:
 
 ```bash
-cp -r design-system-cpn /path/to/your/new/project/
+cp -r design-system /path/to/your/new/project/
+```
+
+Your project structure will look like:
+```
+your-project/
+├── app/
+├── components/
+├── design-system/        ← The folder you just copied
+│   ├── styles/
+│   ├── fonts/
+│   ├── lib/
+│   ├── config/
+│   └── ...
+├── package.json
+└── ...
 ```
 
 ### 2. Install Dependencies
 
-Install the required dependencies:
+Add these to your project:
 
 ```bash
-npm install @tailwindcss/postcss@^4.1.0 tailwindcss@^4.1.0 postcss@^8.4.41
+npm install @tailwindcss/postcss@^4.1.0 tailwindcss@^4.1.0 postcss@^8.4.41 tailwindcss-animate next-themes clsx tailwind-merge lucide-react
 ```
 
-### 3. Setup Configuration
+### 3. Copy Configuration Files
 
-Copy the configuration files to your project root:
+Copy the config files to your project root:
 
 ```bash
-cp design-system-cpn/postcss.config.mjs ./
+# Copy Tailwind config
+cp design-system/tailwind.config.ts ./
+
+# Copy PostCSS config
+cp design-system/postcss.config.mjs ./
+
+# Copy components.json for shadcn/ui
+cp design-system/components.json ./
 ```
 
 ### 4. Copy Font Files
 
-Copy the font files to your public directory:
-
 ```bash
 mkdir -p public/fonts
-cp design-system-cpn/fonts/* public/fonts/
+cp design-system/fonts/* public/fonts/
 ```
 
-### 5. Import Styles
+### 5. Update Your Root Layout
 
-Import the main CSS file in your app:
-
-```typescript
-// app/layout.tsx or pages/_app.tsx
-import './design-system-cpn/styles/globals.css'
-```
-
-### 6. Apply Base Layout
-
-Use this base layout structure:
+Import the CSS and add the theme provider:
 
 ```tsx
+// app/layout.tsx
+import './design-system/styles/globals.css'
+import { ThemeProvider } from './design-system/lib/theme-provider'
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className="bg-cpn-dark text-cpn-white min-h-screen">
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"  {/* Your original design was dark */}
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
 }
 ```
 
-## 🎨 Color System
-
-### Brand Colors
-- **Primary Blue**: `#00A1FE` - CTA buttons, active states, highlights
-- **Dark Background**: `#1f1f1f` - Main background color
-- **Dark Elevated**: `#2a2a2a` - Cards, modals, elevated surfaces
-- **Gray**: `#ababab` - Secondary text, borders, inactive states
-- **White**: `#ffffff` - Primary text, high contrast elements
-
-### Usage
-```css
-/* CSS Variables */
-var(--color-mm-blue)
-var(--color-mm-dark)
-var(--color-mm-dark2)
-var(--color-mm-gray)
-var(--color-mm-white)
-
-/* Tailwind Classes */
-.bg-mm-blue .text-mm-blue .border-mm-blue
-.bg-mm-dark .text-mm-dark .border-mm-dark
-.bg-mm-dark2 .text-mm-dark2 .border-mm-dark2
-.bg-mm-gray .text-mm-gray .border-mm-gray
-.bg-mm-white .text-mm-white .border-mm-white
-```
-
-## 🔤 Typography
-
-### Fonts
-- **Headings**: National2Condensed (bold, condensed style)
-- **Body**: ESKlarheit (clean, readable text)
-
-### Usage
-```tsx
-<h1 className="font-heading">Heading Text</h1>
-<p className="font-body">Body text content</p>
-
-/* Auto-applied to HTML elements */
-h1, h2, h3, h4, h5, h6 // Automatically use heading font
-body, p, span, div     // Automatically use body font
-```
-
-### Typography Scale
-- **h1**: 2.5rem (40px)
-- **h2**: 2rem (32px)
-- **h3**: 1.5rem (24px)
-- **h4**: 1.25rem (20px)
-- **h5**: 1rem (16px)
-- **h6**: 0.875rem (14px)
-
-## 🎯 Component Styles
-
-### Primary Buttons
-The signature 100px border radius blue buttons:
+### 6. Add a Theme Toggle (Optional)
 
 ```tsx
+import { ThemeToggle } from './design-system/lib/theme-toggle'
+
+export function Header() {
+  return (
+    <header className="p-4 border-b">
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-heading">My App</h1>
+        <ThemeToggle />
+      </div>
+    </header>
+  )
+}
+```
+
+## 🎨 Using Your Design System
+
+### Using Your Custom Components
+
+```tsx
+// Your signature button with 100px border radius
 <button className="btn-mm">
-  Primary Action
+  Click Me
 </button>
 
-// With icon
-<button className="btn-mm">
-  <PlusIcon className="w-4 h-4" />
-  Add Data
-</button>
-```
-
-### Secondary Buttons
-Outlined buttons with hover effects:
-
-```tsx
+// Secondary button
 <button className="btn-secondary">
   Secondary Action
 </button>
-```
 
-### Form Inputs
-Dark theme inputs with blue focus states:
-
-```tsx
+// Form input
 <input
   type="text"
   className="input-mm"
   placeholder="Enter text"
 />
 
-<select className="select-mm">
-  <option>Choose option</option>
-</select>
-
-<textarea className="input-mm min-h-[100px]">
-</textarea>
-```
-
-### Cards
-Multiple card variations for different content types:
-
-```tsx
-// Standard card
+// Card
 <div className="card-mm">
-  Content here
+  Your content here
 </div>
 
-// Glass effect card
+// Glass card effect
 <div className="glass-card">
-  Semi-transparent content
+  Glassy content
 </div>
 
-// Hoverable card
-<div className="card-mm hover:border-mm-blue/30 transition-all duration-200 group">
-  Interactive content
-</div>
-```
-
-### Rating Tiles (Signature Pattern)
-The distinctive hotness rating system:
-
-```tsx
-// First row: 5.0 - 7.5
-<div className="grid grid-cols-6 gap-2 mb-2">
+// Rating tiles (your hotness rating system)
+<div className="grid grid-cols-6 gap-2">
   {[5.0, 5.5, 6.0, 6.5, 7.0, 7.5].map((rating) => (
     <button
       key={rating}
@@ -226,263 +154,251 @@ The distinctive hotness rating system:
     </button>
   ))}
 </div>
+```
 
-// Second row: 8.0 - 10.0
-<div className="grid grid-cols-5 gap-2">
-  {[8.0, 8.5, 9.0, 9.5, 10.0].map((rating) => (
-    <button
-      key={rating}
-      className={`rating-tile ${selected === rating ? 'selected' : ''}`}
-      onClick={() => setSelected(rating)}
-    >
-      {rating}
+### Using with shadcn/ui
+
+Install shadcn/ui components and they'll automatically use your design:
+
+```bash
+npx shadcn-ui@latest add button
+npx shadcn-ui@latest add card
+npx shadcn-ui@latest add input
+```
+
+All shadcn components will:
+- Use your MM Blue (#00A1FE) as the primary color
+- Respect light/dark mode
+- Match your overall aesthetic
+
+### Color System
+
+**Your brand colors are available as:**
+
+```tsx
+// CSS classes (legacy, still works)
+className="bg-mm-blue text-mm-dark"
+className="bg-mm-dark text-mm-white"
+className="border-mm-gray"
+
+// Tailwind/shadcn classes (recommended, works in both light/dark)
+className="bg-primary text-primary-foreground"  // MM Blue
+className="bg-background text-foreground"        // Dark/Light adaptive
+className="bg-card text-card-foreground"        // Card backgrounds
+className="border-border"                       // Borders
+```
+
+### Typography
+
+Your fonts are auto-applied:
+
+```tsx
+// Headings automatically use National2Condensed
+<h1>Heading Text</h1>
+
+// Body text automatically uses ESKlarheit
+<p>Body text content</p>
+
+// Or force with classes
+<div className="font-heading">Brand Text</div>
+<div className="font-body">Body Text</div>
+```
+
+## 🌓 Light/Dark Mode
+
+The system defaults to dark mode (your original design) but fully supports light mode.
+
+### Toggle Theme Programmatically
+
+```tsx
+'use client'
+
+import { useTheme } from 'next-themes'
+
+export function CustomToggle() {
+  const { theme, setTheme } = useTheme()
+
+  return (
+    <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+      Toggle Theme
     </button>
-  ))}
-</div>
+  )
+}
 ```
 
-## 🏗️ Layout Patterns
+### Detect Current Theme
 
-### App Layout Structure
 ```tsx
-<div className="flex h-screen bg-mm-dark">
-  {/* Desktop Sidebar */}
-  <aside className="hidden md:flex md:flex-col md:w-64 bg-mm-dark border-r border-mm-gray/20">
-    <div className="p-6">
-      <h1 className="text-2xl font-heading text-mm-blue">App Name</h1>
-      <nav className="space-y-2 mt-8">
-        <a href="#" className="sidebar-item active">Dashboard</a>
-        <a href="#" className="sidebar-item">Other Page</a>
-      </nav>
-    </div>
-  </aside>
+'use client'
 
-  {/* Main Content */}
-  <main className="flex-1 overflow-auto pb-16 md:pb-0">
-    {children}
-  </main>
+import { useTheme } from 'next-themes'
 
-  {/* Mobile Navigation */}
-  <div className="md:hidden fixed bottom-0 left-0 right-0 bg-mm-dark2 border-t border-mm-gray/20">
-    <div className="grid grid-cols-4 py-2">
-      <div className="mobile-nav-item active">
-        <HomeIcon className="w-5 h-5" />
-        <span className="text-xs mt-1">Home</span>
-      </div>
-      // More nav items...
-    </div>
-  </div>
-</div>
+export function ThemeAwareComponent() {
+  const { theme } = useTheme()
+
+  return <div>Current theme: {theme}</div>
+}
 ```
 
-### Navigation Styles
-```tsx
-// Sidebar items
-<a href="#" className="sidebar-item">Navigation Item</a>
-<a href="#" className="sidebar-item active">Active Item</a>
+## 🎯 How to Change Your Primary Color
 
-// Mobile navigation
-<div className="mobile-nav-item">
-  <Icon className="w-5 h-5" />
-  <span className="text-xs mt-1">Label</span>
-</div>
-<div className="mobile-nav-item active">
-  <Icon className="w-5 h-5" />
-  <span className="text-xs mt-1">Active</span>
-</div>
-```
+Your primary color is MM Blue (`#00A1FE`). To change it in all new projects:
 
-### Responsive Grids
-```tsx
-// Card grids
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-  {cards.map(card => <Card key={card.id} {...card} />)}
-</div>
+**Edit:** `design-system/styles/globals.css`
 
-// Statistics grid
-<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-  <StatCard title="Total" value="$2,450" />
-  <StatCard title="Count" value="15" />
-  <StatCard title="Average" value="$163" />
-  <StatCard title="Time" value="12.5h" />
-</div>
-```
-
-## 📱 Mobile Responsiveness
-
-The design system is mobile-first with these key patterns:
-
-### Breakpoints
-- **Mobile**: max-width: 768px
-- **Tablet**: 769px to 1024px
-- **Desktop**: min-width: 1025px
-
-### Mobile Adaptations
-- **Tables → Cards**: Desktop tables become mobile card layouts
-- **Sidebar → Bottom Nav**: Desktop sidebar becomes mobile bottom navigation
-- **Reduced Spacing**: Smaller padding and margins on mobile
-- **Touch Targets**: Larger tap areas for mobile interaction
-
-### Responsive Components
-```tsx
-// Desktop table, mobile cards
-<div className="hidden md:block">
-  <table className="table-cpn">
-    {/* Table content */}
-  </table>
-</div>
-
-<div className="md:hidden space-y-4">
-  {data.map(item => (
-    <div key={item.id} className="card-cpn">
-      {/* Card content */}
-    </div>
-  ))}
-</div>
-```
-
-## 🎭 Animation System
-
-### Available Animations
-```css
-.animate-fade-in    /* 0.5s fade in */
-.animate-slide-up   /* 0.3s slide up */
-.animate-slide-in   /* 0.3s slide in from left */
-.animate-pulse      /* 2s infinite pulse */
-```
-
-### Custom Transitions
-```css
-/* All components use these transition speeds */
---transition-fast: 0.2s     /* Hover effects */
---transition-medium: 0.3s   /* Modal animations */
---transition-slow: 0.5s     /* Page transitions */
-```
-
-## 🛡️ Form Validation
-
-### Error States
-```tsx
-<input
-  className={`input-cpn ${error ? 'border-red-500' : ''}`}
-  value={value}
-  onChange={onChange}
-/>
-{error && <p className="text-error">{error}</p>}
-```
-
-### Success States
-```tsx
-<input className="input-mm border-green-500" />
-<p className="text-success">Valid input!</p>
-```
-
-### Loading States
-```tsx
-<button className="btn-mm" disabled={loading}>
-  {loading ? (
-    <>
-      <div className="animate-pulse w-4 h-4 bg-mm-dark rounded-full"></div>
-      Loading...
-    </>
-  ) : (
-    'Submit'
-  )}
-</button>
-```
-
-## 🔧 Advanced Patterns
-
-### Modal System
-```tsx
-// Modal backdrop and content
-<div className="modal-backdrop" onClick={onClose} />
-<div className="modal-content">
-  <div className="modal-header">
-    <h3 className="text-lg font-heading text-mm-white">Title</h3>
-    <button className="modal-close" onClick={onClose}>
-      <XIcon className="w-6 h-6" />
-    </button>
-  </div>
-  {/* Modal content */}
-</div>
-```
-
-### Table Styling
-```tsx
-<table className="table-cpn">
-  <thead>
-    <tr>
-      <th>Header 1</th>
-      <th>Header 2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Data 1</td>
-      <td>Data 2</td>
-    </tr>
-  </tbody>
-</table>
-```
-
-### Color Mixing Effects
-The design system uses CSS `color-mix()` for dynamic transparency:
+Find this section:
 
 ```css
-/* Glass effects */
-background-color: color-mix(in srgb, var(--color-mm-dark) 80%, transparent);
+:root {
+  --primary: 202 100% 50%;  /* MM Blue #00A1FE */
+  /* ... */
+}
 
-/* Subtle borders */
-border-color: color-mix(in srgb, var(--color-mm-gray) 20%, transparent);
-
-/* Hover states */
-background-color: color-mix(in srgb, var(--color-mm-blue) 30%, transparent);
+.dark {
+  --primary: 202 100% 50%;  /* MM Blue #00A1FE */
+  /* ... */
+}
 ```
 
-## 📋 Implementation Checklist
+Replace `202 100% 50%` with your new color in HSL format:
+- Red: `0 100% 50%`
+- Green: `120 100% 50%`
+- Purple: `270 100% 50%`
+- Orange: `30 100% 50%`
 
-When implementing in a new project:
+**Tip:** Convert hex to HSL at [hslpicker.com](https://hslpicker.com)
 
-- [ ] Install Tailwind CSS 4.1 and PostCSS
-- [ ] Copy font files to `/public/fonts/`
-- [ ] Import `globals.css` in your main layout
-- [ ] Set up the base layout structure with `bg-mm-dark text-mm-white`
-- [ ] Copy PostCSS configuration
-- [ ] Test all component styles work correctly
-- [ ] Implement responsive navigation (sidebar + mobile nav)
-- [ ] Set up modal system if needed
-- [ ] Configure form validation styles
-- [ ] Test mobile responsiveness
+## 📁 Folder Structure
 
-## 🎨 Design Philosophy
+```
+design-system/
+├── styles/
+│   └── globals.css              # Main CSS file with all styles
+├── fonts/
+│   ├── National-2-Condensed-Bold.ttf
+│   └── ESKlarheitGrotesk-Rg.otf
+├── lib/
+│   ├── utils.ts                 # cn() utility for shadcn
+│   ├── theme-provider.tsx       # Theme context provider
+│   └── theme-toggle.tsx         # Pre-built toggle component
+├── config/
+│   ├── colors.json              # Color palette reference
+│   └── design-tokens.json       # Design token specs
+├── components.json              # shadcn/ui configuration
+├── tailwind.config.ts           # Tailwind configuration
+├── postcss.config.mjs           # PostCSS configuration
+├── package.json                 # Dependencies
+└── README.md                    # This file
+```
 
-This design system embodies:
+## 🔧 Advanced Usage
 
-1. **Distinctive Branding**: The 100px border radius buttons and strategic blue accent create instant brand recognition
-2. **Dark Theme Excellence**: Carefully crafted contrast ratios for accessibility and visual appeal
-3. **Mobile-First Responsive**: Every component adapts gracefully from mobile to desktop
-4. **Consistent Spacing**: Systematic padding, margins, and gap usage throughout
-5. **Performance-Focused**: Minimal CSS with maximum visual impact
-6. **Developer-Friendly**: Intuitive class names and clear patterns
+### Custom Component Classes
 
-## 🔄 Maintenance
+The design system provides these reusable classes:
 
-To keep the design system up to date:
+**Buttons:**
+- `.btn-mm` - Primary button (100px radius, blue)
+- `.btn-secondary` - Secondary outlined button
 
-1. **Version Control**: Track changes to design tokens in `/config/` files
-2. **Component Updates**: Update examples when adding new patterns
-3. **Documentation**: Keep README updated with new components or patterns
-4. **Testing**: Verify all components work across different screen sizes
+**Forms:**
+- `.input-mm` - Text input
+- `.select-mm` - Select dropdown
 
-## 📞 Support
+**Cards:**
+- `.card-mm` - Standard card
+- `.glass-card` - Glass morphism card
 
-This design system was extracted from MM v2. For questions or improvements:
+**Navigation:**
+- `.sidebar-item` - Sidebar navigation item
+- `.sidebar-item.active` - Active state
+- `.mobile-nav-item` - Mobile bottom nav item
 
-1. Check the `/examples/` folder for implementation patterns
-2. Review `/config/design-tokens.json` for specifications
-3. Reference the original MM v2 application for context
+**Tables:**
+- `.table-mm` - Styled table
+
+**Modals:**
+- `.modal-backdrop` - Modal backdrop
+- `.modal-content` - Modal content
+- `.modal-header` - Modal header
+- `.modal-close` - Close button
+
+**Rating:**
+- `.rating-tile` - Rating button
+- `.rating-tile.selected` - Selected state
+
+**Utilities:**
+- `.text-error` - Error message text
+- `.text-success` - Success message text
+- `.divider` - Horizontal divider
+- `.skeleton` - Loading skeleton
+
+### Using with Other Frameworks
+
+While designed for Next.js, you can adapt this for:
+- **Vite + React:** Copy `globals.css`, fonts, and Tailwind config
+- **Remix:** Similar to Next.js setup
+- **Astro:** Import CSS in your layout
+
+## 🚨 Common Issues
+
+### Fonts not loading
+- Make sure fonts are in `public/fonts/`
+- Check the font paths in `globals.css` match your setup
+
+### Dark mode not working
+- Ensure `suppressHydrationWarning` is on `<html>` tag
+- Verify `ThemeProvider` wraps your app
+- Check `attribute="class"` is set in ThemeProvider
+
+### shadcn components look wrong
+- Make sure you copied `components.json`
+- Verify `tailwind.config.ts` is in your root
+- Check the CSS import path in your layout
+
+### Colors not applying
+- Ensure `globals.css` is imported in your root layout
+- Check Tailwind content paths include your files
+- Verify PostCSS config is copied
+
+## 📊 What's Different from v1
+
+- ✅ Full light/dark mode support
+- ✅ shadcn/ui compatibility
+- ✅ Tailwind CSS 4.0
+- ✅ Better organized structure
+- ✅ Theme provider included
+- ✅ Pre-built theme toggle
+- ✅ HSL color system (more flexible)
+- ✅ All your original styles preserved
+
+## 🎓 Best Practices
+
+1. **Don't modify the design-system folder** in individual projects. Update the master copy and re-copy it.
+
+2. **Change primary color once** in the master design-system folder, then reuse everywhere.
+
+3. **Use shadcn components** when possible - they'll match your design automatically.
+
+4. **Use the custom classes** (`.btn-mm`, `.card-mm`, etc.) for your unique patterns.
+
+5. **Keep fonts in public/fonts/** so they work in production builds.
+
+## 📝 Customization Checklist
+
+When starting a new project:
+
+- [ ] Copy `design-system` folder
+- [ ] Install dependencies
+- [ ] Copy config files (tailwind.config.ts, postcss.config.mjs, components.json)
+- [ ] Copy fonts to `public/fonts/`
+- [ ] Import CSS in root layout
+- [ ] Add ThemeProvider
+- [ ] Test light/dark mode works
+- [ ] (Optional) Adjust primary color if needed
 
 ---
 
-**Copy this folder to any new project and you'll have the exact same brilliant design system ready to use immediately!** 🚀
+**That's it!** Your design system is ready to use. Every project will look exactly the same, and you can toggle between light/dark mode with a single button click.
+
+For questions or issues, refer to the original design tokens in the `config/` folder.
