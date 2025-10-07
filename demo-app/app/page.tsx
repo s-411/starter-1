@@ -14,7 +14,7 @@ export default function Home() {
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-8 border-b border-border">
           <div>
-            <h1 className="text-4xl md:text-5xl font-heading mb-2">SH Design System</h1>
+            <h1 className="text-4xl md:text-5xl font-heading mb-2">MM Design System</h1>
             <p className="text-muted-foreground">Your complete design system with light/dark mode</p>
           </div>
           <ThemeToggle />
@@ -79,16 +79,16 @@ export default function Home() {
         <section>
           <h2 className="text-2xl font-heading mb-6">Buttons</h2>
           <div className="flex flex-wrap gap-4">
-            <button className="btn-sh">
+            <button className="btn-mm">
               Primary Button
             </button>
-            <button className="btn-sh">
+            <button className="btn-mm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
               With Icon
             </button>
-            <button className="btn-sh" disabled>
+            <button className="btn-mm" disabled>
               Disabled
             </button>
             <button className="btn-secondary">
@@ -112,7 +112,7 @@ export default function Home() {
               <label className="block text-sm font-medium mb-2">Text Input</label>
               <input
                 type="text"
-                className="input-sh"
+                className="input-mm"
                 placeholder="Enter your text here..."
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
@@ -120,7 +120,7 @@ export default function Home() {
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">Select Dropdown</label>
-              <select className="select-sh">
+              <select className="select-mm">
                 <option>Choose an option...</option>
                 <option>Option 1</option>
                 <option>Option 2</option>
@@ -130,7 +130,7 @@ export default function Home() {
             <div>
               <label className="block text-sm font-medium mb-2">Textarea</label>
               <textarea
-                className="input-sh min-h-[100px]"
+                className="input-mm min-h-[100px]"
                 placeholder="Enter longer text..."
               />
             </div>
@@ -141,12 +141,12 @@ export default function Home() {
         <section>
           <h2 className="text-2xl font-heading mb-6">Cards</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="card-sh">
+            <div className="card-mm">
               <h3 className="text-xl font-heading mb-3">Standard Card</h3>
               <p className="text-muted-foreground mb-4">
                 This is your standard card component with consistent padding, borders, and hover effects.
               </p>
-              <button className="btn-sh">Action</button>
+              <button className="btn-mm">Action</button>
             </div>
             <div className="glass-card">
               <h3 className="text-xl font-heading mb-3">Glass Card</h3>
@@ -197,7 +197,7 @@ export default function Home() {
         <section>
           <h2 className="text-2xl font-heading mb-6">Table</h2>
           <div className="overflow-x-auto">
-            <table className="table-sh">
+            <table className="table-mm">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -253,7 +253,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>SH Design System v2.0 - Built with Tailwind CSS 4 + shadcn/ui compatibility</p>
+          <p>MM Design System v2.0 - Built with Tailwind CSS 4 + shadcn/ui compatibility</p>
           <p className="mt-2">Toggle theme with the button at the top to see light/dark mode! 🌓</p>
         </footer>
 

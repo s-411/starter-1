@@ -25,11 +25,12 @@
 @theme {
   /* ========== COLORS ========== */
   /* Main brand colors */
-  --color-sh-primary: #00A1FE;
-  --color-sh-dark: #1f1f1f;
-  --color-sh-dark2: #2a2a2a;
-  --color-sh-white: #ffffff;
-  --color-sh-gray: #ababab;
+  --color-mm-primary: #00A1FE;
+  --color-mm-secondary: #f2f661;
+  --color-mm-dark: #1f1f1f;
+  --color-mm-dark2: #2a2a2a;
+  --color-mm-white: #ffffff;
+  --color-mm-gray: #ababab;
 
   /* shadcn/ui color system - for light mode */
   --color-background: hsl(0 0% 100%);
@@ -57,7 +58,7 @@
   --font-family-body: 'ESKlarheit', 'Inter', system-ui, sans-serif;
 
   /* Border Radius */
-  --radius-sh: 100px;
+  --radius-mm: 100px;
   --radius-card: 0.5rem;
   --radius-input: 0.5rem;
 
@@ -177,24 +178,27 @@
    ================================ */
 @layer utilities {
   /* Brand color utilities */
-  .text-sh-primary { color: var(--color-sh-primary); }
-  .text-sh-dark { color: var(--color-sh-dark); }
-  .text-sh-white { color: var(--color-sh-white); }
-  .text-sh-gray { color: var(--color-sh-gray); }
-  .bg-sh-primary { background-color: var(--color-sh-primary); }
-  .bg-sh-dark { background-color: var(--color-sh-dark); }
-  .bg-sh-dark2 { background-color: var(--color-sh-dark2); }
-  .bg-sh-white { background-color: var(--color-sh-white); }
-  .bg-sh-gray { background-color: var(--color-sh-gray); }
-  .border-sh-primary { border-color: var(--color-sh-primary); }
-  .border-sh-gray { border-color: var(--color-sh-gray); }
+  .text-mm-primary { color: var(--color-mm-primary); }
+  .text-mm-secondary { color: var(--color-mm-secondary); }
+  .text-mm-dark { color: var(--color-mm-dark); }
+  .text-mm-white { color: var(--color-mm-white); }
+  .text-mm-gray { color: var(--color-mm-gray); }
+  .bg-mm-primary { background-color: var(--color-mm-primary); }
+  .bg-mm-secondary { background-color: var(--color-mm-secondary); }
+  .bg-mm-dark { background-color: var(--color-mm-dark); }
+  .bg-mm-dark2 { background-color: var(--color-mm-dark2); }
+  .bg-mm-white { background-color: var(--color-mm-white); }
+  .bg-mm-gray { background-color: var(--color-mm-gray); }
+  .border-mm-primary { border-color: var(--color-mm-primary); }
+  .border-mm-secondary { border-color: var(--color-mm-secondary); }
+  .border-mm-gray { border-color: var(--color-mm-gray); }
 
   /* Typography utilities */
   .font-heading { font-family: var(--font-family-heading); }
   .font-body { font-family: var(--font-family-body); }
 
   /* Border radius utilities */
-  .rounded-sh { border-radius: var(--radius-sh); }
+  .rounded-mm { border-radius: var(--radius-mm); }
   .rounded-card { border-radius: var(--radius-card); }
   .rounded-input { border-radius: var(--radius-input); }
 }
@@ -205,7 +209,7 @@
    ================================ */
 @layer components {
   /* Primary Button - Your signature 100px border radius */
-  .btn-sh {
+  .btn-mm {
     @apply inline-flex items-center justify-center gap-2;
     @apply font-bold text-base;
     @apply px-6 py-3;
@@ -213,18 +217,18 @@
     @apply cursor-pointer border-none;
     background-color: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
-    border-radius: var(--radius-sh);
+    border-radius: var(--radius-mm);
   }
 
-  .btn-sh:hover {
+  .btn-mm:hover {
     opacity: 0.9;
   }
 
-  .btn-sh:active {
+  .btn-mm:active {
     transform: translateY(1px);
   }
 
-  .btn-sh:disabled {
+  .btn-mm:disabled {
     @apply opacity-50 cursor-not-allowed;
   }
 
@@ -238,7 +242,7 @@
     @apply transition-all duration-200;
     @apply cursor-pointer;
     color: hsl(var(--foreground));
-    border-radius: var(--radius-sh);
+    border-radius: var(--radius-mm);
   }
 
   .btn-secondary:hover {
@@ -247,7 +251,7 @@
   }
 
   /* Form Inputs */
-  .input-sh {
+  .input-mm {
     @apply w-full px-3 py-3 text-base;
     @apply bg-background/50 border border-input;
     @apply rounded-input outline-none;
@@ -255,21 +259,21 @@
     color: hsl(var(--foreground));
   }
 
-  .input-sh::placeholder {
+  .input-mm::placeholder {
     color: hsl(var(--muted-foreground));
   }
 
-  .input-sh:focus {
+  .input-mm:focus {
     border-color: hsl(var(--ring));
     box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
   }
 
-  .input-sh:disabled {
+  .input-mm:disabled {
     @apply opacity-50 cursor-not-allowed;
   }
 
   /* Select Dropdown */
-  .select-sh {
+  .select-mm {
     @apply w-full px-3 py-3 text-base;
     @apply bg-background/50 border border-input;
     @apply rounded-input outline-none;
@@ -277,20 +281,20 @@
     color: hsl(var(--foreground));
   }
 
-  .select-sh:focus {
+  .select-mm:focus {
     border-color: hsl(var(--ring));
     box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
   }
 
   /* Cards */
-  .card-sh {
+  .card-mm {
     @apply p-6 border border-border rounded-card;
     @apply transition-all duration-200;
     background-color: hsl(var(--card));
     color: hsl(var(--card-foreground));
   }
 
-  .card-sh:hover {
+  .card-mm:hover {
     border-color: hsl(var(--primary) / 0.3);
   }
 
@@ -361,28 +365,28 @@
    TABLE STYLES
    ================================ */
 @layer components {
-  .table-sh {
+  .table-mm {
     @apply w-full border-collapse;
   }
 
-  .table-sh th {
+  .table-mm th {
     @apply text-left px-4 py-4 font-medium text-sm uppercase tracking-wider;
     @apply border-b;
     color: hsl(var(--muted-foreground));
     border-color: hsl(var(--border));
   }
 
-  .table-sh td {
+  .table-mm td {
     @apply px-4 py-4 border-b;
     color: hsl(var(--foreground));
     border-color: hsl(var(--border) / 0.5);
   }
 
-  .table-sh tbody tr {
+  .table-mm tbody tr {
     @apply transition-colors duration-200;
   }
 
-  .table-sh tbody tr:hover {
+  .table-mm tbody tr:hover {
     background-color: hsl(var(--accent) / 0.5);
   }
 }
