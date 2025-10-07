@@ -116,9 +116,9 @@
     --primary-foreground: 0 0% 12%;  /* Dark text on primary */
     --secondary: 0 0% 16%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 20%;
+    --muted: 0 0% 18%;  /* Darker gray for icon hover - closer to card color */
     --muted-foreground: 0 0% 67%;  /* #ababab */
-    --accent: 0 0% 20%;
+    --accent: 0 0% 18%;  /* Darker gray for hover states */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 100% 71%;
     --destructive-foreground: 0 0% 100%;

@@ -280,91 +280,91 @@ export default function Home() {
           <h2 className="text-2xl font-heading mb-6">Lucide Icons</h2>
           <p className="text-muted-foreground mb-6">Common icons from the Lucide library</p>
           <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-4">
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <HomeIcon className="w-6 h-6" />
               <span className="text-xs text-center">Home</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <User className="w-6 h-6" />
               <span className="text-xs text-center">User</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Settings className="w-6 h-6" />
               <span className="text-xs text-center">Settings</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Search className="w-6 h-6" />
               <span className="text-xs text-center">Search</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Bell className="w-6 h-6" />
               <span className="text-xs text-center">Bell</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Mail className="w-6 h-6" />
               <span className="text-xs text-center">Mail</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Heart className="w-6 h-6" />
               <span className="text-xs text-center">Heart</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Star className="w-6 h-6" />
               <span className="text-xs text-center">Star</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Trash2 className="w-6 h-6" />
               <span className="text-xs text-center">Trash</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Edit className="w-6 h-6" />
               <span className="text-xs text-center">Edit</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Plus className="w-6 h-6" />
               <span className="text-xs text-center">Plus</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Download className="w-6 h-6" />
               <span className="text-xs text-center">Download</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Upload className="w-6 h-6" />
               <span className="text-xs text-center">Upload</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Check className="w-6 h-6" />
               <span className="text-xs text-center">Check</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <X className="w-6 h-6" />
               <span className="text-xs text-center">X</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <AlertCircle className="w-6 h-6" />
               <span className="text-xs text-center">Alert</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Info className="w-6 h-6" />
               <span className="text-xs text-center">Info</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <ChevronRight className="w-6 h-6" />
               <span className="text-xs text-center">Right</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <ChevronLeft className="w-6 h-6" />
               <span className="text-xs text-center">Left</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Calendar className="w-6 h-6" />
               <span className="text-xs text-center">Calendar</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <Clock className="w-6 h-6" />
               <span className="text-xs text-center">Clock</span>
             </div>
-            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors">
+            <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-accent transition-colors">
               <MapPin className="w-6 h-6" />
               <span className="text-xs text-center">MapPin</span>
             </div>
