@@ -25,11 +25,11 @@
 @theme {
   /* ========== COLORS ========== */
   /* Main brand colors */
-  --color-mm-blue: #00A1FE;
-  --color-mm-dark: #1f1f1f;
-  --color-mm-dark2: #2a2a2a;
-  --color-mm-white: #ffffff;
-  --color-mm-gray: #ababab;
+  --color-sh-primary: #00A1FE;
+  --color-sh-dark: #1f1f1f;
+  --color-sh-dark2: #2a2a2a;
+  --color-sh-white: #ffffff;
+  --color-sh-gray: #ababab;
 
   /* shadcn/ui color system - for light mode */
   --color-background: hsl(0 0% 100%);
@@ -57,7 +57,7 @@
   --font-family-body: 'ESKlarheit', 'Inter', system-ui, sans-serif;
 
   /* Border Radius */
-  --radius-mm: 100px;
+  --radius-sh: 100px;
   --radius-card: 0.5rem;
   --radius-input: 0.5rem;
 
@@ -83,8 +83,8 @@
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 202 100% 50%;  /* MM Blue #00A1FE */
-    --primary-foreground: 0 0% 12%;  /* Dark text on blue */
+    --primary: 202 100% 50%;  /* Primary color #00A1FE */
+    --primary-foreground: 0 0% 12%;  /* Dark text on primary */
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
     --muted: 0 0% 96.1%;
@@ -95,7 +95,7 @@
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
-    --ring: 202 100% 50%;  /* MM Blue for focus rings */
+    --ring: 202 100% 50%;  /* Primary color for focus rings */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -104,15 +104,15 @@
   }
 
   .dark {
-    /* Dark mode colors - your original design */
+    /* Dark mode colors */
     --background: 0 0% 12%;  /* #1f1f1f */
     --foreground: 0 0% 100%;  /* #ffffff */
     --card: 0 0% 16%;  /* #2a2a2a */
     --card-foreground: 0 0% 100%;
     --popover: 0 0% 16%;
     --popover-foreground: 0 0% 100%;
-    --primary: 202 100% 50%;  /* MM Blue #00A1FE */
-    --primary-foreground: 0 0% 12%;  /* Dark text on blue */
+    --primary: 202 100% 50%;  /* Primary color #00A1FE */
+    --primary-foreground: 0 0% 12%;  /* Dark text on primary */
     --secondary: 0 0% 16%;
     --secondary-foreground: 0 0% 100%;
     --muted: 0 0% 20%;
@@ -123,7 +123,7 @@
     --destructive-foreground: 0 0% 100%;
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 202 100% 50%;  /* MM Blue for focus rings */
+    --ring: 202 100% 50%;  /* Primary color for focus rings */
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -137,12 +137,11 @@
    ================================ */
 @layer base {
   * {
-    border-color: hsl(var(--border));
+    @apply border-border;
   }
 
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    @apply bg-background text-foreground;
     font-family: var(--font-family-body);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -177,25 +176,25 @@
    Works alongside Tailwind + shadcn
    ================================ */
 @layer utilities {
-  /* Legacy MM color utilities (for backward compatibility) */
-  .text-mm-blue { color: var(--color-mm-blue); }
-  .text-mm-dark { color: var(--color-mm-dark); }
-  .text-mm-white { color: var(--color-mm-white); }
-  .text-mm-gray { color: var(--color-mm-gray); }
-  .bg-mm-blue { background-color: var(--color-mm-blue); }
-  .bg-mm-dark { background-color: var(--color-mm-dark); }
-  .bg-mm-dark2 { background-color: var(--color-mm-dark2); }
-  .bg-mm-white { background-color: var(--color-mm-white); }
-  .bg-mm-gray { background-color: var(--color-mm-gray); }
-  .border-mm-blue { border-color: var(--color-mm-blue); }
-  .border-mm-gray { border-color: var(--color-mm-gray); }
+  /* Brand color utilities */
+  .text-sh-primary { color: var(--color-sh-primary); }
+  .text-sh-dark { color: var(--color-sh-dark); }
+  .text-sh-white { color: var(--color-sh-white); }
+  .text-sh-gray { color: var(--color-sh-gray); }
+  .bg-sh-primary { background-color: var(--color-sh-primary); }
+  .bg-sh-dark { background-color: var(--color-sh-dark); }
+  .bg-sh-dark2 { background-color: var(--color-sh-dark2); }
+  .bg-sh-white { background-color: var(--color-sh-white); }
+  .bg-sh-gray { background-color: var(--color-sh-gray); }
+  .border-sh-primary { border-color: var(--color-sh-primary); }
+  .border-sh-gray { border-color: var(--color-sh-gray); }
 
   /* Typography utilities */
   .font-heading { font-family: var(--font-family-heading); }
   .font-body { font-family: var(--font-family-body); }
 
   /* Border radius utilities */
-  .rounded-mm { border-radius: var(--radius-mm); }
+  .rounded-sh { border-radius: var(--radius-sh); }
   .rounded-card { border-radius: var(--radius-card); }
   .rounded-input { border-radius: var(--radius-input); }
 }
@@ -206,7 +205,7 @@
    ================================ */
 @layer components {
   /* Primary Button - Your signature 100px border radius */
-  .btn-mm {
+  .btn-sh {
     @apply inline-flex items-center justify-center gap-2;
     @apply font-bold text-base;
     @apply px-6 py-3;
@@ -214,18 +213,18 @@
     @apply cursor-pointer border-none;
     background-color: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
-    border-radius: var(--radius-mm);
+    border-radius: var(--radius-sh);
   }
 
-  .btn-mm:hover {
+  .btn-sh:hover {
     opacity: 0.9;
   }
 
-  .btn-mm:active {
+  .btn-sh:active {
     transform: translateY(1px);
   }
 
-  .btn-mm:disabled {
+  .btn-sh:disabled {
     @apply opacity-50 cursor-not-allowed;
   }
 
@@ -239,7 +238,7 @@
     @apply transition-all duration-200;
     @apply cursor-pointer;
     color: hsl(var(--foreground));
-    border-radius: var(--radius-mm);
+    border-radius: var(--radius-sh);
   }
 
   .btn-secondary:hover {
@@ -248,7 +247,7 @@
   }
 
   /* Form Inputs */
-  .input-mm {
+  .input-sh {
     @apply w-full px-3 py-3 text-base;
     @apply bg-background/50 border border-input;
     @apply rounded-input outline-none;
@@ -256,21 +255,21 @@
     color: hsl(var(--foreground));
   }
 
-  .input-mm::placeholder {
+  .input-sh::placeholder {
     color: hsl(var(--muted-foreground));
   }
 
-  .input-mm:focus {
+  .input-sh:focus {
     border-color: hsl(var(--ring));
     box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
   }
 
-  .input-mm:disabled {
+  .input-sh:disabled {
     @apply opacity-50 cursor-not-allowed;
   }
 
   /* Select Dropdown */
-  .select-mm {
+  .select-sh {
     @apply w-full px-3 py-3 text-base;
     @apply bg-background/50 border border-input;
     @apply rounded-input outline-none;
@@ -278,20 +277,20 @@
     color: hsl(var(--foreground));
   }
 
-  .select-mm:focus {
+  .select-sh:focus {
     border-color: hsl(var(--ring));
     box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
   }
 
   /* Cards */
-  .card-mm {
+  .card-sh {
     @apply p-6 border border-border rounded-card;
     @apply transition-all duration-200;
     background-color: hsl(var(--card));
     color: hsl(var(--card-foreground));
   }
 
-  .card-mm:hover {
+  .card-sh:hover {
     border-color: hsl(var(--primary) / 0.3);
   }
 
@@ -362,28 +361,28 @@
    TABLE STYLES
    ================================ */
 @layer components {
-  .table-mm {
+  .table-sh {
     @apply w-full border-collapse;
   }
 
-  .table-mm th {
+  .table-sh th {
     @apply text-left px-4 py-4 font-medium text-sm uppercase tracking-wider;
     @apply border-b;
     color: hsl(var(--muted-foreground));
     border-color: hsl(var(--border));
   }
 
-  .table-mm td {
+  .table-sh td {
     @apply px-4 py-4 border-b;
     color: hsl(var(--foreground));
     border-color: hsl(var(--border) / 0.5);
   }
 
-  .table-mm tbody tr {
+  .table-sh tbody tr {
     @apply transition-colors duration-200;
   }
 
-  .table-mm tbody tr:hover {
+  .table-sh tbody tr:hover {
     background-color: hsl(var(--accent) / 0.5);
   }
 }
